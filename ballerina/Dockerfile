@@ -15,19 +15,8 @@
 # limitations under the License.
 #
 
-FROM adoptopenjdk/openjdk8-openj9:jdk8u202-b08_openj9-0.12.1
-
-RUN rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get update \
-	&& apt-get install -y --no-install-recommends locales \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& locale-gen en_US.UTF-8
-
-ENV LANG="en_US.UTF-8" \
-	LANGUAGE="en_US:en" \
-	LC_ALL="en_US.UTF-8" \
-	VERSION=8 \
-	UPDATE=202 \
-	BUILD=08
+#hadolint ignore=DL3007
+FROM us.icr.io/openwhisk-multiarch/scala:latest
 
 ADD proxy /home/ballerina
 RUN cd /home/ballerina \
