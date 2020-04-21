@@ -24,7 +24,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
     }
 }
 
@@ -77,10 +77,6 @@ configurations.all {
     exclude group: 'org.ops4j.pax.logging', module: 'pax-logging-api'
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.6' //version required
-}
-
 defaultTasks 'shadowJar'
 
 // Configure the shadow jar task
@@ -106,4 +102,3 @@ task copyRepoDependencies() {
         }
     }
 }
-
